@@ -22,7 +22,7 @@ def disc_block(x, filters, apply_batchnorm=True):
 	return x
 
 # 🛠 PatchGAN Discriminator
-def build_discriminator(input_shape=(256, 256, 1)):
+def buildDisc(input_shape=(256, 256, 1)):
 	img_input = Input(shape=input_shape)
 	cond_input = Input(shape=input_shape)  # Input kondisi (gambar asli)
 
@@ -41,8 +41,3 @@ def build_discriminator(input_shape=(256, 256, 1)):
 	out = SpectralNormalization(Conv2D(1, kernel_size=4, strides=1, padding="same", activation="sigmoid"))(b)
 
 	return Model([img_input, cond_input], out, name="PatchGAN_Discriminator")
-
-
-# 🛠 Build Model
-discriminator = build_discriminator()
-discriminator.summary()

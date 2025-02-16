@@ -36,7 +36,7 @@ def decoder_block(x, skip_input, filters, apply_dropout=False):
 
 
 # 🌟 U-Net Generator Model
-def build_generator(input_shape=(256, 256, 1)):
+def buildGen(input_shape=(256, 256, 1)):
 	inputs = Input(shape=input_shape)
 
 	# Encoder (Downsampling)
@@ -64,9 +64,3 @@ def build_generator(input_shape=(256, 256, 1)):
 	outputs = SpectralNormalization(Conv2DTranspose(1, kernel_size=4, strides=2, padding="same", activation="tanh"))(d7)
 
 	return Model(inputs, outputs, name="U-Net_Generator")
-
-
-# 🛠 Build Model
-generator = build_generator()
-generator.summary()
-
