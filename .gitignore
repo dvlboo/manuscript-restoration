@@ -2,3 +2,5 @@
 *test
 *val
 .ipynb_checkpoints
+*train-bin
+*test-bin
